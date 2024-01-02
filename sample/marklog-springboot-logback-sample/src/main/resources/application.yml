@@ -1,0 +1,14 @@
+server:
+  port: 28081
+spring:
+  application:
+    name: logback-demo
+
+mark:
+  filed:
+  level:
+  maxlenght:
+  hit:
+  markList：
+    -
+
