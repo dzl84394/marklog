@@ -43,6 +43,8 @@ public class SensitiveLog4j2Converter extends LogEventPatternConverter {
         //DENY,NEUTRAL,ACCEPT
         String message = event.getMessage().getFormattedMessage();
         String desensitizedMessage = MarkUtils.desensitize(className+"（"+lineNumber+"）",message);
+
+        event.getMarker();
         toAppendTo.append(desensitizedMessage);
     }
 

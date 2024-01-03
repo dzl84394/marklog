@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.awt.datatransfer.StringSelection;
 import java.util.List;
+import java.util.Map;
 
 @Component
 @Configuration
@@ -24,7 +25,7 @@ public class MarkConfig {
     public static String markLevel ="NEUTRAL";// DENY,NEUTRAL,ACCEPT
     public static int markMaxlenght = 4096;
     public static boolean markhit = false;
-    public static List<RegexReplacementVo> markReplaceList;
+    public static Map<String,RegexReplacementVo> markReplaceMap;
 
     @PostConstruct
     public void  init(){
@@ -41,7 +42,10 @@ public class MarkConfig {
             markhit = true;
         }
         if(replaceList!=null){
-            markReplaceList = replaceList;
+            replaceList.forEach(e->{
+                markReplaceMap.put(e.getSn(),e);
+            });
+
         }
 
     }

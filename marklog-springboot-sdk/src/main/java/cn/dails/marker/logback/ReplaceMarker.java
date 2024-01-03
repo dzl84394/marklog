@@ -4,33 +4,33 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ReplaceMarker extends AbstractMarker{
-    private Set<String> sensitiveTYpes;
-    private String mark;
+    private Set<String> fieldset;
+    private String keys;
 
     public ReplaceMarker() {
-        this.sensitiveTYpes = new HashSet<>();
-        this.mark = "";
+        this.fieldset = new HashSet<>();
+        this.keys = "";
     }
 
-    public Set<String> getSensitiveTYpes() {
-        return sensitiveTYpes;
+    public Set<String> getFieldset() {
+        return fieldset;
     }
 
-    public void setSensitiveTYpes(Set<String> sensitiveTYpes) {
-        this.sensitiveTYpes = sensitiveTYpes;
+    public void setFieldset(Set<String> fieldset) {
+        this.fieldset = fieldset;
     }
-    public void addSensitiveTYpes(String sensitiveTYpe) {
-        if (this.sensitiveTYpes.isEmpty()){
-            this.sensitiveTYpes = new HashSet<>();
+    public void addFieldset(String string) {
+        if (this.fieldset.isEmpty()){
+            this.fieldset = new HashSet<>();
         }
-        this.sensitiveTYpes.add(sensitiveTYpe);
+        this.fieldset.add(string);
     }
 
-    public String getMark() {
-        return mark;
+    public String getKeys() {
+        return keys;
     }
 
-    public void setMark(String mark) {
-        this.mark = mark;
+    public void setKeys(String keys) {
+        this.keys = keys;
     }
 }
