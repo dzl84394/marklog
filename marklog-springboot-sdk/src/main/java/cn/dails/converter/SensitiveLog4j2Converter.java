@@ -1,6 +1,11 @@
 package cn.dails.converter;
 
+import cn.dails.marker.log4j2.AbstractLog4jMarker;
+import cn.dails.marker.log4j2.ReplaceLog4jMarker;
+import cn.dails.marker.logback.ReplaceMarker;
 import cn.dails.utils.MarkUtils;
+import com.alibaba.fastjson.JSONObject;
+import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.apache.logging.log4j.core.config.plugins.PluginAttribute;
@@ -42,7 +47,11 @@ public class SensitiveLog4j2Converter extends LogEventPatternConverter {
         // 判断超长
         //DENY,NEUTRAL,ACCEPT
         String message = event.getMessage().getFormattedMessage();
-        String desensitizedMessage = MarkUtils.desensitize(className+"（"+lineNumber+"）",message);
+        Marker marker =  event.getMarker();
+        String str = marker.getName();
+        ReplaceMarker marker1 = JSONObject.parseObject(str, ReplaceMarker.class);
+
+        String desensitizedMessage = MarkUtils.desensitize(className+"（"+lineNumber+"）",message,marker1);
 
         event.getMarker();
         toAppendTo.append(desensitizedMessage);

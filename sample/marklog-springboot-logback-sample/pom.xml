@@ -30,6 +30,10 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.83</version>
         </dependency>
-
+        <dependency>
+            <groupId>cn.dails</groupId>
+            <artifactId>marklog-springboot-sdk</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 </project>

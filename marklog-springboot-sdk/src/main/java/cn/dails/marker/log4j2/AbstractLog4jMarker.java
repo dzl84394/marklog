@@ -5,6 +5,10 @@ import org.apache.logging.log4j.Marker;
 import java.util.Set;
 
 public class AbstractLog4jMarker implements Marker {
+
+    private Set<String> fieldset;
+    private String keys;
+    
     private  String name;
     private  Set<String> set;
 
